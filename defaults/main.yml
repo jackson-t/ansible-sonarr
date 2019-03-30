@@ -1,0 +1,13 @@
+---
+
+log_level: Info
+sonarr_port: 8989
+url_base: ''
+bind_address: '*'
+ssl_port: 9898
+enable_ssl: 'False'
+authentication_method: None
+branch: master
+launch_browser: 'True'
+ssl_cert_hash: ''
+update_mechanism: BuiltIn

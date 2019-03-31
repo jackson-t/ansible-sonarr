@@ -1,5 +1,7 @@
 # ansible-sonarr
 
+[![Build Status](https://travis-ci.org/mpataki/ansible-sonarr.svg?branch=master)](https://travis-ci.org/mpataki/ansible-sonarr)
+
 This ansible role installs, configures, and runs sonarr.
 
 ## Requirements

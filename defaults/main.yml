@@ -1,13 +1,13 @@
 ---
 
-log_level: Info
+sonarr_log_level: 'Info'
+sonarr_enable_ssl: 'False'
 sonarr_port: 8989
-url_base: ''
-bind_address: '*'
-ssl_port: 9898
-enable_ssl: 'False'
-authentication_method: None
-branch: master
-launch_browser: 'True'
-ssl_cert_hash: ''
-update_mechanism: BuiltIn
+sonarr_ssl_port: 9898
+sonarr_url_base: ''
+sonarr_bind_address: '*'
+sonarr_api_key: ''
+sonarr_authentication_method: 'None'
+sonarr_update_mechanism: 'BuiltIn'
+sonarr_branch: 'master'
+sonarr_launch_browser: 'True'

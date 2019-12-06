@@ -1,14 +1,14 @@
 <Config>
-  <LogLevel>{{ log_level }}</LogLevel>
+  <LogLevel>{{ sonarr_log_level }}</LogLevel>
+  <EnableSsl>{{ sonarr_enable_ssl }}</EnableSsl>  
   <Port>{{ sonarr_port }}</Port>
-  <UrlBase>{{ url_base }}</UrlBase>
-  <BindAddress>{{ bind_address }}</BindAddress>
-  <SslPort>{{ ssl_port }}</SslPort>
-  <EnableSsl>{{ enable_ssl }}</EnableSsl>
-  <ApiKey>{{ api_key }}</ApiKey>
-  <AuthenticationMethod>{{ authentication_method }}</AuthenticationMethod>
-  <Branch>{{ branch }}</Branch>
-  <LaunchBrowser>{{ launch_browser }}</LaunchBrowser>
-  <SslCertHash>{{ ssl_cert_hash }}</SslCertHash>
-  <UpdateMechanism>{{ update_mechanism }}</UpdateMechanism>
+  <SslPort>{{ sonarr_ssl_port }}</SslPort>
+  <UrlBase>{{ sonarr_url_base }}</UrlBase>
+  <BindAddress>{{ sonarr_bind_address }}</BindAddress>
+  <ApiKey>{{ sonarr_api_key }}</ApiKey>
+  <AuthenticationMethod>{{ sonarr_authentication_method }}</AuthenticationMethod>
+  <UpdateMechanism>{{ sonarr_update_mechanism }}</UpdateMechanism>
+  <Branch>{{ sonarr_branch }}</Branch>
+  <LaunchBrowser>{{ sonarr_launch_browser }}</LaunchBrowser>
+  <SslCertHash></SslCertHash>
 </Config>

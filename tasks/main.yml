@@ -1,88 +1,42 @@
 ---
 
-- name: install sonarr dependencies
-  apt:
-    name:
-      - apt-transport-https
-    state: present
-  become: true
-
-- name: add mono key server
-  apt_key:
-    keyserver: hkp://keyserver.ubuntu.com:80
-    id: 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-  become: true
-
-- name: place mono stable source
-  copy:
-    src: mono-official-stable.list
-    dest: /etc/apt/sources.list.d/mono-official-stable.list
-    owner: root
-    group: root
-  become: true
-
-- name: update apt cache
-  apt:
-    update_cache: true
-    name: mono-complete
-  become: true
-
-- name: add sonarr apt key
+- name: Add Mono Apt Key
   apt_key:
     keyserver: keyserver.ubuntu.com
-    id: FDA5DFFC
-  become: true
+    id: 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 
-- name: write apt sonarr file
-  copy:
-    content: 'deb https://apt.sonarr.tv/ master main'
-    dest: '/etc/apt/sources.list.d/sonarr.list'
-  become: true
-
-- name: update apt-get repo cache
-  apt:
-    update_cache: yes
-  become: true
-
-- name: install more sonarr dependencies
-  apt:
-    name: '{{ packages }}'
+- name: Add Mono Repository
+  apt_repository:
+    repo: deb https://download.mono-project.com/repo/ubuntu stable-bionic main
     state: present
-  become: true
-  vars:
-    packages:
-      - sqlite3
-      - nzbdrone
+    filename: mono-official-stable
 
-- name: set installed file permissions
-  file:
-    path: /opt/NzbDrone
-    owner: pi
-    group: pi
-    recurse: true
-  become: true
+- name: Add Sonarr Apt Key
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 2009837CBFFD68F45BC180471F4F90DE2A9B4BF8
 
-- name: install the sonarr systemd unit file
-  copy:
-    src: files/sonarr.service
-    dest: /etc/systemd/system/sonarr.service
-    owner: root
-    group: root
-  become: true
+- name: Add Sonarr v3 Repository
+  apt_repository:
+    repo: deb https://apt.sonarr.tv/ubuntu bionic main
+    state: present
+    filename: sonarr
 
-- name: start and enable sonarr service
-  systemd:
+- name: Update System
+  apt:
+    update_cache: true
+    upgrade: full
+
+- name: Install Sonarr
+  apt:
     name: sonarr
-    state: started
-    enabled: true
-  become: true
 
 - name: sonarr config
   template:
     src: config.xml
-    dest: /home/pi/.config/NzbDrone/config.xml
-    owner: pi
-    group: pi
+    dest: /var/lib/sonarr/config.xml
+    owner: sonarr
+    group: sonarr
     mode: 0644
   become: true
   notify: restart sonarr

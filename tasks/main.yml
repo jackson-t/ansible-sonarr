@@ -1,5 +1,10 @@
 ---
 
+- name: Install Prerequisite Packages
+  apt:
+    name: gnupg
+    state: present
+
 - name: Add Mono Apt Key
   apt_key:
     keyserver: keyserver.ubuntu.com

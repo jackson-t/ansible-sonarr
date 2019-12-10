@@ -1,22 +1,40 @@
-# ansible-sonarr
+ansible-sonarr
+=========
 
-[![Build Status](https://travis-ci.org/mpataki/ansible-sonarr.svg?branch=master)](https://travis-ci.org/mpataki/ansible-sonarr)
+This role will install Sonarr v3 onto Ubuntu 18.04
 
-This ansible role installs, configures, and runs sonarr.
+Requirements
+------------
 
-## Requirements
+None
 
-This role was tested on a raspberry pi running raspbian (stretch).
+Role Variables
+--------------
 
-## Role Variables
+Variables are primarily from the sonarr config file. See [config.xml](templates/config.xml) and the [defaults](defaults/main.yml).
 
-These variables are largely straight out of the sonarr config file. See [config.xml](templates/config.xml) and the [defaults](defaults/main.yml).
+Dependencies
+------------
 
-## Example Playbook
+None
 
-```yml
-    - hosts: pi
+Example Playbook
+----------------
+
+Including an example of how to use your role (for instance, with variables
+passed in as parameters) is always nice for users too:
+
+    - hosts: servers
       roles:
-        - role: mpataki.sonarr
-          tags: sonarr
-```
+         - { role: ansible-sonarr }
+
+License
+-------
+
+BSD
+
+Author Information
+------------------
+
+This role was created in 2019 by Jackson.
+
